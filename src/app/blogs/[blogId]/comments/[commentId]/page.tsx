@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function page({
+export default async function page({
   params,
 }: {
   params: { blogId: string; commentId: string };
 }) {
-  const { blogId, commentId } = params;
+  const { blogId, commentId } = await params;
   return (
     <div>
       <h1>
