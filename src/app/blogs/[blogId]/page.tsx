@@ -1,7 +1,19 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import React from "react";
 
-export default async function page({ params }: { params: { blogId: string } }) {
+type props = {
+  params: Promise<{ blogId: string }>;
+};
+//work only on server side components
+export const generateMetadata = async ({
+  params,
+}: props): Promise<Metadata> => {
+  const id = (await params).blogId;
+  return { title: `blog ${id}` };
+};
+
+export default async function page({ params }: props) {
   const blogId = (await params).blogId;
   if (parseInt(blogId) > 1001) {
     notFound();
