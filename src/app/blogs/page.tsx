@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+await new Promise(res=>{
+  setTimeout(() => {
+    res("internal delay")
+  }, 2000);
+})
   return (
     <div>
       <h1>blogs</h1>

@@ -6,6 +6,9 @@ export default async function page({
   params: { blogId: string; commentId: string };
 }) {
   const { blogId, commentId } = await params;
+  if(Math.floor(Math.random()*2)===1){
+    throw Error("Error which i make to test this next feature.")//this error make by me not worry
+  }
   return (
     <div>
       <h1>
